@@ -729,3 +729,53 @@
 2021-12-29 12:05:30,805 [INFO] ApiDb:280 - User favorites MCUs=[]
 2021-12-29 12:05:30,806 [INFO] ApiDb:276 - Save user favorites file C:\Users\mgmil/.stm32cubeide/favorites.boards.txt: 0 item(s)
 2021-12-29 12:05:30,806 [INFO] ApiDb:280 - User favorites Boards=[]
+2021-12-29 12:17:21,961 [INFO] DbMcusDocs:143 - JSON generation date=Tue Nov 16 17:17:54 CET 2021 (1637079474)
+2021-12-29 12:17:22,231 [INFO] DbMcusDocs:79 - Found 682 MCUs documents
+2021-12-29 12:21:50,512 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 736970864 Bytes (1037041664)
+2021-12-29 12:21:58,595 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 340371192 Bytes (1037041664)
+2021-12-29 12:21:59,762 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 384828888 Bytes (1037041664)
+2021-12-29 12:22:02,166 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 430242472 Bytes (1037041664)
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USB_OTG_FS
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: USART
+2021-12-29 12:22:02,468 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-12-29 12:22:02,469 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2021-12-29 12:22:03,182 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\license.tmp_save
+2021-12-29 12:22:03,252 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\license.tmp
+2021-12-29 12:22:03,292 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\gpio.c_save
+2021-12-29 12:22:03,349 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\gpio.c
+2021-12-29 12:22:03,355 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\gpio.h_save
+2021-12-29 12:22:03,405 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\gpio.h
+2021-12-29 12:22:03,525 [WARN] IPConfigManager:2741 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2021-12-29 12:22:03,538 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\cortex.tmp_save
+2021-12-29 12:22:03,585 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\cortex.tmp
+2021-12-29 12:22:03,599 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\usart.c_save
+2021-12-29 12:22:03,679 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\usart.c
+2021-12-29 12:22:03,686 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\usart.h_save
+2021-12-29 12:22:03,740 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\usart.h
+2021-12-29 12:22:03,750 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\usb_otg.c_save
+2021-12-29 12:22:03,828 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\usb_otg.c
+2021-12-29 12:22:03,831 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\usb_otg.h_save
+2021-12-29 12:22:03,883 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\usb_otg.h
+2021-12-29 12:22:03,901 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\stm32f7xx_it.c_save
+2021-12-29 12:22:04,004 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\stm32f7xx_it.c
+2021-12-29 12:22:04,010 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\stm32f7xx_it.h_save
+2021-12-29 12:22:04,058 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\stm32f7xx_it.h
+2021-12-29 12:22:04,073 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\stm32f7xx_hal_msp.c_save
+2021-12-29 12:22:04,157 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\stm32f7xx_hal_msp.c
+2021-12-29 12:22:04,161 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\system.tmp_save
+2021-12-29 12:22:04,204 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\MXTmpFiles\system.tmp
+2021-12-29 12:22:04,219 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\stm32f7xx_hal_conf.h_save
+2021-12-29 12:22:04,285 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\stm32f7xx_hal_conf.h
+2021-12-29 12:22:04,320 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\main.h_save
+2021-12-29 12:22:04,383 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Inc\main.h
+2021-12-29 12:22:04,392 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\main.c_save
+2021-12-29 12:22:04,480 [INFO] CodeEngine:257 - Generated code: C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\Core\Src\main.c
+2021-12-29 12:22:05,237 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 247mS.
+2021-12-29 12:22:05,241 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2021-12-29 12:22:05,606 [INFO] ConfigFileManager:1273 - The Die is : DIE449
+2021-12-29 12:22:07,220 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1979mS.
+2021-12-29 12:22:07,221 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2021-12-29 12:22:07,225 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 1mS.
