@@ -36,7 +36,7 @@ while True:
         hSerial.flush()
         hSerial.reset_input_buffer()
     print("Temperatura: " + str(temperature) + "Czas: " + str(t_prev))
-    plik.write(t_prev + " " + temperature) # Zapis jako plik txt w formacie CSV
+    plik.write(str(t_prev) + " " + str(temperature) + "\n") # Zapis jako plik txt w formacie CSV
     plt.plot(t_prev,temperature)
     plt.title("URA - temperatura")
     plt.xlabel("Czas t [s]")
