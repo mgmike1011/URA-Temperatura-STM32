@@ -1,0 +1,14 @@
+17:48:54 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
+make -j12 all 
+arm-none-eabi-size   Projekt_URA_MCU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34432	    488	   3912	  38832	   97b0	Projekt_URA_MCU.elf
+Finished building: default.size.stdout
+ 
+17:49:01 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
+make -j12 all 
+arm-none-eabi-size   Projekt_URA_MCU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34432	    488	   3912	  38832	   97b0	Projekt_URA_MCU.elf
+Finished building: default.size.stdout
+ 
