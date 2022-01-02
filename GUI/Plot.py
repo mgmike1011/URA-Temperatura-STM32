@@ -1,6 +1,6 @@
 # Część odpowiedzialna za przedstawienie wyników
 from Connection import *
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import json
 import numpy as np
 from time import sleep
