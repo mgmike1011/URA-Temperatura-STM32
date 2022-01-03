@@ -30,7 +30,7 @@ while True:
         temperature_all.append(temperature) #Dodanie do całego zbioru
         t = sample["t"] #Odczytanie temperatury
         t_prev = t_prev + t
-        t_all.append(t) #Dodanie do całego zbioru
+        t_all.append(t_prev) #Dodanie do całego zbioru
     except ValueError:
         print("JSON Problem")
         hSerial.flush()

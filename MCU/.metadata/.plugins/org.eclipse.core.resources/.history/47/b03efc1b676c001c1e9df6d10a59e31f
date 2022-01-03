@@ -1,0 +1,34 @@
+/*
+ * PID_Controller.c
+ *
+ *  Created on: 3 sty 2022
+ *      Author: mgmil
+ */
+
+#include "PID_Controller.h"
+
+float u_pid_calculate(pid_controller_t* pid, float temp_zadana, float temp_aktualna){
+	float u = 0, P, I, D, integral, derivative;
+	pid->uchyb_aktualny = temp_zadana-temp_aktualna;
+	//
+	//Część proporcjonalna
+	//
+	P = pid->Kp*pid->uchyb_aktualny;
+	//
+	//Część całkująca
+	//
+	integral = pid->calka_poprzedni + pid->uchyb_aktualny + pid->uchyb_aktualny;
+	pid->calka_poprzedni = integral;
+	I = pid->Ki*integral*(pid->dt/2.0);
+	//
+	//Część różniczkująca
+	//
+	derivative = (pid->uchyb_aktualny - pid->uchyb_poprzedni)/pid->dt;
+	pid->uchyb_poprzedni = pid->uchyb_aktualny;
+	D = pid->Kd*derivative;
+	//
+	//Obliczenie sterowania
+	//
+	u = P + I + D;
+	return u;
+}

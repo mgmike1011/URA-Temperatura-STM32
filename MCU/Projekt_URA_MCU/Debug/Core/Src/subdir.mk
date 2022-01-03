@@ -7,6 +7,7 @@
 C_SRCS += \
 ../Core/Src/BMXX80.c \
 ../Core/Src/GFX_BW.c \
+../Core/Src/PID_Controller.c \
 ../Core/Src/SSD1306_OLED.c \
 ../Core/Src/gpio.c \
 ../Core/Src/i2c.c \
@@ -22,6 +23,7 @@ C_SRCS += \
 OBJS += \
 ./Core/Src/BMXX80.o \
 ./Core/Src/GFX_BW.o \
+./Core/Src/PID_Controller.o \
 ./Core/Src/SSD1306_OLED.o \
 ./Core/Src/gpio.o \
 ./Core/Src/i2c.o \
@@ -37,6 +39,7 @@ OBJS += \
 C_DEPS += \
 ./Core/Src/BMXX80.d \
 ./Core/Src/GFX_BW.d \
+./Core/Src/PID_Controller.d \
 ./Core/Src/SSD1306_OLED.d \
 ./Core/Src/gpio.d \
 ./Core/Src/i2c.d \
@@ -57,7 +60,7 @@ Core/Src/%.o: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/BMXX80.d ./Core/Src/BMXX80.o ./Core/Src/GFX_BW.d ./Core/Src/GFX_BW.o ./Core/Src/SSD1306_OLED.d ./Core/Src/SSD1306_OLED.o ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/stm32f7xx_hal_msp.d ./Core/Src/stm32f7xx_hal_msp.o ./Core/Src/stm32f7xx_it.d ./Core/Src/stm32f7xx_it.o ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/system_stm32f7xx.d ./Core/Src/system_stm32f7xx.o ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usb_otg.d ./Core/Src/usb_otg.o
+	-$(RM) ./Core/Src/BMXX80.d ./Core/Src/BMXX80.o ./Core/Src/GFX_BW.d ./Core/Src/GFX_BW.o ./Core/Src/PID_Controller.d ./Core/Src/PID_Controller.o ./Core/Src/SSD1306_OLED.d ./Core/Src/SSD1306_OLED.o ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/stm32f7xx_hal_msp.d ./Core/Src/stm32f7xx_hal_msp.o ./Core/Src/stm32f7xx_it.d ./Core/Src/stm32f7xx_it.o ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/system_stm32f7xx.d ./Core/Src/system_stm32f7xx.o ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usb_otg.d ./Core/Src/usb_otg.o
 
 .PHONY: clean-Core-2f-Src
 

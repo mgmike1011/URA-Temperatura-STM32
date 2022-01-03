@@ -32,6 +32,7 @@
 #include "SSD1306_OLED.h"
 #include "GFX_BW.h"
 #include "fonts/fonts.h"
+#include "PID_Controller.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +64,10 @@ float temperature_set = 0;
 char Message[32];
 uint8_t status = 4;
 uint32_t SoftTimerOled;
+//
+//Regulator PID
+//
+pid_controller_t pid={.Kp = 1, .Ki = 0.002, .Kd = 0, .dt = 1, .calka_poprzedni = 0, .uchyb_aktualny = 0, .uchyb_poprzedni = 0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

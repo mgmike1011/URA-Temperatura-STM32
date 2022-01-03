@@ -1,10 +1,21 @@
-17:49:01 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
+08:41:48 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
 make -j12 all 
+arm-none-eabi-gcc "../Core/Src/PID_Controller.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/PID_Controller.d" -MT"Core/Src/PID_Controller.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/PID_Controller.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Projekt_URA_MCU.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\mgmil\Documents\SM_lab_projekt_URA\MCU\Projekt_URA_MCU\STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projekt_URA_MCU.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Projekt_URA_MCU.elf
+ 
 arm-none-eabi-size   Projekt_URA_MCU.elf 
+arm-none-eabi-objdump -h -S  Projekt_URA_MCU.elf  > "Projekt_URA_MCU.list"
+arm-none-eabi-objcopy  -O binary  Projekt_URA_MCU.elf  "Projekt_URA_MCU.bin"
    text	   data	    bss	    dec	    hex	filename
   34432	    488	   3912	  38832	   97b0	Projekt_URA_MCU.elf
 Finished building: default.size.stdout
  
+Finished building: Projekt_URA_MCU.bin
+ 
+Finished building: Projekt_URA_MCU.list
+ 
 
-17:49:01 Build Finished. 0 errors, 0 warnings. (took 303ms)
+08:41:49 Build Finished. 0 errors, 0 warnings. (took 1s.271ms)
 

@@ -33,7 +33,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/usart.h \
  ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h ../Core/Inc/BMPXX80.h \
  ../Core/Inc/SSD1306_OLED.h ../Core/Inc/GFX_BW.h \
- ../Core/Inc/fonts/fonts.h ../Core/Inc/fonts/font_8x5.h
+ ../Core/Inc/fonts/fonts.h ../Core/Inc/fonts/font_8x5.h \
+ ../Core/Inc/PID_Controller.h
 
 ../Core/Inc/main.h:
 
@@ -118,3 +119,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/fonts/fonts.h:
 
 ../Core/Inc/fonts/font_8x5.h:
+
+../Core/Inc/PID_Controller.h:
