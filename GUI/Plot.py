@@ -34,4 +34,4 @@ def show_plot():
     plt.ylabel("Temperatura [C]")
     plt.plot(t,temperature)
     plt.show()
-    plt.pause(0.0001)
+    plt.pause(0.01)

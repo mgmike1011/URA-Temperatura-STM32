@@ -5,7 +5,7 @@ import json
 import matplotlib as plt
 
 port = 'COM4'
-szybkosc = 11520
+szybkosc = 115200
 def Connect_to_MCU():
     hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE)
     hSerial.reset_input_buffer()

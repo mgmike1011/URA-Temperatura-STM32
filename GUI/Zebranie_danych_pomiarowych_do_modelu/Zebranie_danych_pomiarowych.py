@@ -42,12 +42,12 @@ while True:
     plik.write(str(t_prev) + " " + str(temperature) + "\n") # Zapis jako plik txt w formacie CSV
     plik.close()
     plt.clf()
-    plt.plot(t_all,temperature_all, '.', markersize=5)
+    plt.plot(t_all,temperature_all)
     plt.title("URA - temperatura")
     plt.xlabel("Czas t [s]")
     plt.ylabel("Temperatura [C]")
     plt.show()
-    plt.pause(0.0001)
+    plt.pause(0.01)
     if keyboard.is_pressed("q"):
         break  # finishing the loop
 hSerial.close()
