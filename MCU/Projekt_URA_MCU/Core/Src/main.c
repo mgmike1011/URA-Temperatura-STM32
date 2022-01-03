@@ -57,7 +57,7 @@
 //
 int32_t pressure = 0;
 float temperature = 0;
-float temperature_set = 0;
+float temperature_set = 30;
 //
 // OLED Print
 //
@@ -114,9 +114,15 @@ int main(void)
 	MX_I2C1_Init();
 	/* USER CODE BEGIN 2 */
 	//
+	//Włączenie TIM
+	//
+	//HAL_TIM_Base_Start()
+	//HAL_TIM_PWM_Start()
+
+	//
 	//Ustawienie czujnika Temperatury
 	//
-	//BMP280_Init(&hi2c1, BMP280_TEMPERATURE_16BIT, BMP280_STANDARD, BMP280_FORCEDMODE);
+	BMP280_Init(&hi2c1, BMP280_TEMPERATURE_16BIT, BMP280_STANDARD, BMP280_FORCEDMODE);
 
 	//
 	// Ustawienie Wyświetlacza OLED
@@ -135,7 +141,7 @@ int main(void)
 		//
 		//Pobranie danych z czujnika - aktualna temp i press
 		//		(DOCELOWO W CALLBACK)
-		//	  BMP280_ReadTemperatureAndPressure(&temperature, &pressure);
+			  BMP280_ReadTemperatureAndPressure(&temperature, &pressure);
 
 		//
 		//Wyświetlanie danych na wyświetlaczu OLED
@@ -146,9 +152,9 @@ int main(void)
 			sprintf(Message, "Regulacja Temperatury");
 			GFX_DrawString(0, 0, Message, WHITE, 0);
 			GFX_DrawLine(0, 9, 128, 9, WHITE);
-			sprintf(Message, "Aktualna temp: %.2f C", temperature);
+			sprintf(Message, "Aktualna temp: %.2fC", temperature);
 			GFX_DrawString(0, 12, Message, WHITE, 0);
-			sprintf(Message, "Zadana temp: %.2f C", temperature_set);
+			sprintf(Message, "Zadana temp: %.1f C", temperature_set);
 			GFX_DrawString(0, 22, Message, WHITE, 0);
 			sprintf(Message, "Cisnienie: %.1f HPa", ((float)pressure/100.0));
 			GFX_DrawString(0, 32, Message, WHITE, 0);
@@ -170,6 +176,8 @@ int main(void)
 				GFX_DrawString(0, 42, Message, WHITE, 0);
 				break;
 			}
+			GFX_DrawLine(127, 53, 127, 64, WHITE);
+			GFX_DrawRectangle(0, 53, (uint16_t)(128*temperature/temperature_set), 11, WHITE);
 			SSD1306_Display();
 		}
 		/* USER CODE END WHILE */
