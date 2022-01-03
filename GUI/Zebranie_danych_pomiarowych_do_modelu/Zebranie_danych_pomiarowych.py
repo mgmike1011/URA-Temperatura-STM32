@@ -4,11 +4,12 @@ import serial
 import json
 import numpy as np
 from time import sleep
+import keyboard #pip install keyboard
 
 # Połączenie z kontrolerem
-port = 'COM4'
-szybkosc = 11520
-hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE)
+port = 'COM3'
+szybkosc = 115200
+hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE, bytesize = serial.EIGHTBITS)
 hSerial.reset_input_buffer()
 hSerial.flush()
 # Wartości początkowe
@@ -22,9 +23,10 @@ plt.ion()
 # Pobieranie i przetwarzanie danych
 while True:
     tmp = hSerial.readline()
+    # print(tmp)
     try:
         # Format ramki JSON:
-        # {"Temp":wartosc,"t":wartosc,"Temp_set":wartosc,"Kp":wartosc,"Ti":wartosc,"Td":wartosc}
+        # {"Temp":wartosc,"t":wartosc,"Temp_set":wartosc,"Kp":wartosc,"Ki":wartosc,"Kd":wartosc}
         sample = json.loads(tmp)
         temperature = sample["Temp"] #Odczytanie temperatury
         temperature_all.append(temperature) #Dodanie do całego zbioru
@@ -35,13 +37,17 @@ while True:
         print("JSON Problem")
         hSerial.flush()
         hSerial.reset_input_buffer()
-    print("Temperatura: " + str(temperature) + "Czas: " + str(t_prev))
+    plik = open("Wyniki.txt", 'a')
+    print("Temperatura: " + str(temperature) + " Czas: " + str(t_prev))
     plik.write(str(t_prev) + " " + str(temperature) + "\n") # Zapis jako plik txt w formacie CSV
-    plt.plot(t_prev,temperature)
+    plik.close()
+    plt.clf()
+    plt.plot(t_all,temperature_all, '.', markersize=5)
     plt.title("URA - temperatura")
     plt.xlabel("Czas t [s]")
     plt.ylabel("Temperatura [C]")
     plt.show()
     plt.pause(0.0001)
-# hSerial.close()
-# plik.close()
+    if keyboard.is_pressed("q"):
+        break  # finishing the loop
+hSerial.close()

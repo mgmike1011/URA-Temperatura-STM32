@@ -12,6 +12,9 @@
 #ifndef BMPXX80_H_
 #define BMPXX80_H_
 
+#define BMP_CS_GPIO_Port GPIOB
+#define BMP_CS_Pin GPIO_PIN_8
+
 //
 //	Settings
 //	Choose sensor
@@ -22,8 +25,8 @@
 #ifndef BMP280
 	#define BME280
 #endif
-#define BMP_I2C 1
-#define BMP_SPI 0
+#define BMP_I2C 0
+#define BMP_SPI 1
 #endif
 #ifdef BMP180
 #define BMP_I2C 1
