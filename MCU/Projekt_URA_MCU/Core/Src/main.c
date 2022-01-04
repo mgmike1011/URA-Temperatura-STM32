@@ -154,7 +154,7 @@ int main(void)
 	//
 	//Otworzenie portu do nasłuchu na przychodzące komendy
 	//
-	HAL_UART_Receive_IT(&huart3, Buffor_Rx, 6);
+	HAL_UART_Receive_IT(&huart3, Buffor_Rx, 8);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -271,7 +271,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		//
 		float u = u_pid_calculate(&pid, temperature_set, temperature);
 		uint16_t sterowanie = saturation_pwm(u);
-		if(u<100)
+		if(sterowanie<100)
 		{
 			status = STATUS_CHLODZENIE;
 		}else{
@@ -297,14 +297,42 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		//
 		//Wykonanie akcji
 		//
-
+		//Możliwe komunikaty:
+		//"TMP=27.5" lub dowolna inna temp
+		//"STA=0001" lub "STA=0002" lub "STA=0003" lub "STA=0004"
+		//
+		if(Buffor_Rx[0] == 'S'){
+			switch(Buffor_Rx[7]){
+			case '1':
+				status = STATUS_GRZANIE;
+				break;
+			case '2':
+				status = STATUS_CHLODZENIE;
+				break;
+			case '3':
+				status = STATUS_ERROR;
+				break;
+			case '4':
+				status = STATUS_STOP;
+				break;
+			}
+			}else if(Buffor_Rx[0] == 'T'){
+				float temp_change;
+				char temp_change_str[4];
+				temp_change_str[0] = Buffor_Rx[4];
+				temp_change_str[1] = Buffor_Rx[5];
+				temp_change_str[2] = Buffor_Rx[6];
+				temp_change_str[3] = Buffor_Rx[7];
+				temp_change = atof(temp_change_str);
+				temperature_set = temp_change;
+			}
 
 		//Sygnalizacja zakończenia
 		HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
 		//
 		//Ponowne ustawienie nasłuchu
 		//
-		HAL_UART_Receive_IT(&huart3, Buffor_Rx, 6);
+		HAL_UART_Receive_IT(&huart3, Buffor_Rx, 8);
 	}
 }
 /* USER CODE END 4 */

@@ -10,6 +10,7 @@ import keyboard #pip install keyboard
 port = 'COM3'
 szybkosc = 115200
 hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE, bytesize = serial.EIGHTBITS)
+# hSerial.write(b'STA=0001') #Rozpoczęcie pracy mikrokontrolera
 hSerial.reset_input_buffer()
 hSerial.flush()
 # Wartości początkowe
