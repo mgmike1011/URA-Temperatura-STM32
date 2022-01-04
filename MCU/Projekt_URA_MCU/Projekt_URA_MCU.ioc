@@ -65,6 +65,7 @@ NVIC.PriorityGroup=NVIC_PRIORITYGROUP_4
 NVIC.SVCall_IRQn=true\:0\:0\:false\:false\:true\:true\:false
 NVIC.SysTick_IRQn=true\:0\:0\:false\:false\:true\:true\:true
 NVIC.TIM2_IRQn=true\:0\:0\:false\:false\:true\:true\:true
+NVIC.USART3_IRQn=true\:0\:0\:false\:false\:true\:true\:true
 NVIC.UsageFault_IRQn=true\:0\:0\:false\:false\:true\:true\:false
 PA11.GPIOParameters=GPIO_Label
 PA11.GPIO_Label=USB_DM
