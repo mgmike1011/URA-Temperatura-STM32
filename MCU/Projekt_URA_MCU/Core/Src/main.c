@@ -74,6 +74,8 @@ uint32_t SoftTimerOled;
 //Regulator PID
 //
 pid_controller_t pid={.Kp = 1, .Ki = 0.002, .Kd = 0, .dt = 1, .calka_poprzedni = 0, .uchyb_aktualny = 0, .uchyb_poprzedni = 0};
+float u;
+uint16_t sterowanie;
 //
 //UART - wysyłanie danych
 //
@@ -199,7 +201,7 @@ int main(void)
 			SSD1306_Display();
 		}
 		if(zezwolenie){
-			length = sprintf((char*)Buffor, "{\"Temp\":%.2f,\"t\":%.1f,\"Temp_set\":%.2f,\"Kp\":%.4f,\"Ki\":%.4f,\"Kd\":%.4f}\r\n",temperature,pid.dt,temperature_set,pid.Kp,pid.Ki,pid.Kd);
+			length = sprintf((char*)Buffor, "{\"Temp\":%.2f,\"t\":%.1f,\"Temp_set\":%.2f,\"Kp\":%.4f,\"Ki\":%.4f,\"Kd\":%.4f,\"u\":%.2f}\r\n",temperature,pid.dt,temperature_set,pid.Kp,pid.Ki,pid.Kd,u);
 			HAL_UART_Transmit(&huart3, Buffor, length, 1000);
 			zezwolenie = 0;
 		}
@@ -269,8 +271,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		//
 		//Regulator
 		//
-		float u = u_pid_calculate(&pid, temperature_set, temperature);
-		uint16_t sterowanie = saturation_pwm(u);
+		u = u_pid_calculate(&pid, temperature_set, temperature);
+		sterowanie = saturation_pwm(u);
 		if(sterowanie<100)
 		{
 			status = STATUS_CHLODZENIE;

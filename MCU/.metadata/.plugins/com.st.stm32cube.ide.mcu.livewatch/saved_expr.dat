@@ -1,3 +1,6 @@
 temperature
 temperature_set
 u
+pid
+u
+sterowanie
