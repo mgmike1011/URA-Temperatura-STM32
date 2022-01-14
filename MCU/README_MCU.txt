@@ -11,6 +11,7 @@
 Program realizuje sterowanie mikrokontrolerem: wysyłanie i odbiór danych, realizacja algorytmu sterowania URA, wyświetlanie wyników.
 
 #Elementy fizyczne:
+- Nucleo F746ZG
 - Rezystor 39Ohm,
 - Tranzystor bipolarny NPN,
 - Czujnik BMP280,
@@ -20,9 +21,15 @@ Program realizuje sterowanie mikrokontrolerem: wysyłanie i odbiór danych, real
 
 #Wyświetlacz OLED, ze sterownikiem SSD1306:
 Połączenie: I2C
-
+	SCL - PB6
+	SDA - PB9
+	
 #Czujnik BMP280:
 Połączenie: SPI
+	CS - PB8
+	SCK - PA5
+	MOSI - PA7
+	MISO - PA6
 
 #Wysyłanie i odbiór danych:
 Połączenie: UART 3,

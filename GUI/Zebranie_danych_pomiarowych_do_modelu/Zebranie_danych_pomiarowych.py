@@ -27,7 +27,7 @@ while True:
     # print(tmp)
     try:
         # Format ramki JSON:
-        # {"Temp":wartosc,"t":wartosc,"Temp_set":wartosc,"Kp":wartosc,"Ki":wartosc,"Kd":wartosc}
+        # {"Temp":wartosc,"t":wartosc,"Temp_set":wartosc,"Kp":wartosc,"Ki":wartosc,"Kd":wartosc,"u":wartosc}
         sample = json.loads(tmp)
         temperature = sample["Temp"] #Odczytanie temperatury
         temperature_all.append(temperature) #Dodanie do całego zbioru
