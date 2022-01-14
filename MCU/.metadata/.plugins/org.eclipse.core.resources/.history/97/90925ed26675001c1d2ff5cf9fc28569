@@ -272,19 +272,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		//Regulator
 		//
 
-		u = u_pid_calculate(&pid, temperature_set, temperature);
-		sterowanie = saturation_pwm(u);
-		if(sterowanie<100)
-		{
-			status = STATUS_CHLODZENIE;
-		}else{
-			status = STATUS_GRZANIE;
-		}
+//		u = u_pid_calculate(&pid, temperature_set, temperature);
+//		sterowanie = saturation_pwm(u);
+//		if(sterowanie<100)
+//		{
+//			status = STATUS_CHLODZENIE;
+//		}else{
+//			status = STATUS_GRZANIE;
+//		}
 
 		//
 		//Wytworzenie sygnału
 		//
-		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_3,sterowanie);
+		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_3,999);
 		//
 		//Wysłanie danych
 		//

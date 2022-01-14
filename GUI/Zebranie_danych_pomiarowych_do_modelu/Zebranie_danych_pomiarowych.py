@@ -17,10 +17,13 @@ hSerial.flush()
 temperature_all = []
 t_all = []
 t_prev = 0
+u_all = []
+u = 0
 temperature = 0
 t = 0
-plik = open("Wyniki.txt", 'a')
+plik = open("Wyniki_PID.txt", 'a')
 plt.ion()
+hSerial.write(b'TMP=27.0')
 hSerial.write(b'STA=0001')
 # Pobieranie i przetwarzanie danych
 while True:
@@ -35,13 +38,15 @@ while True:
         t = sample["t"] #Odczytanie temperatury
         t_prev = t_prev + t
         t_all.append(t_prev) #Dodanie do całego zbioru
+        u = sample["u"]
+        u_all.append(u)
     except ValueError:
         print("JSON Problem")
         hSerial.flush()
         hSerial.reset_input_buffer()
-    plik = open("Wyniki.txt", 'a')
-    print("Temperatura: " + str(temperature) + " Czas: " + str(t_prev))
-    plik.write(str(t_prev) + " " + str(temperature) + "\n") # Zapis jako plik txt w formacie CSV
+    plik = open("Wyniki_PID.txt", 'a')
+    print("Temperatura: " + str(temperature) + " Czas: " + str(t_prev)+ " Sterowanie: " + str(u))
+    plik.write(str(t_prev) + " " + str(temperature) + str(u) +"\n") # Zapis jako plik txt w formacie CSV
     plik.close()
     plt.clf()
     plt.plot(t_all,temperature_all)
