@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1"
+    ComputedModelVersion    "1.3"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -43,7 +43,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [40.0, 150.0, 800.0, 521.0]
+      Location		      [-7.0, 0.0, 1549.0, 837.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -67,9 +67,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[941.0, 441.0]
-	ZoomFactor		[0.49999999999999994]
-	Offset			[-99.333333333332689, -18.499984478950065]
+	Extents			[1878.0, 836.0]
+	ZoomFactor		[1.102384920055796]
+	Offset			[-150.54452233613529, -9.8997383085495585]
       }
     }
   }
@@ -79,9 +79,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "agnpi"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jan 04 01:34:59 2022"
-  RTWModifiedTimeStamp	  563152562
-  ModelVersionFormat	  "1.%<AutoIncrement:1>"
+  LastModifiedDate	  "Fri Jan 14 19:38:46 2022"
+  RTWModifiedTimeStamp	  564088800
+  ModelVersionFormat	  "1.%<AutoIncrement:3>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -132,7 +132,7 @@ Model {
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Symulacja_z_regulatorem_Simulink"
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -753,7 +753,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 320, 93, 1214, 706 ] 
+      ConfigPrmDlgPosition     [ 320, 92, 1213, 704 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -985,7 +985,7 @@ Model {
   }
   System {
     Name		    "Symulacja_z_regulatorem_Simulink"
-    Location		    [40, 150, 840, 671]
+    Location		    [-7, 0, 1542, 837]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -997,7 +997,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "50"
+    ZoomFactor		    "110"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "20"
     Block {
@@ -1019,9 +1019,9 @@ Model {
       Form		      "Parallel"
       UseFilter		      off
       ControllerParametersSource "internal"
-      P			      "1"
-      I			      "1"
-      D			      "0"
+      P			      "0.52"
+      I			      "0.003"
+      D			      "0.257"
       N			      "100"
       InitialConditionSource  "internal"
       InitialConditionForIntegrator "0"
@@ -1160,7 +1160,7 @@ Model {
       Ports		      [1, 1]
       Position		      [405, 430, 435, 460]
       ZOrder		      167
-      DelayTime		      "delay"
+      DelayTime		      "tau"
     }
     Block {
       BlockType		      SubSystem
@@ -1220,7 +1220,7 @@ Model {
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "u"
@@ -1304,18 +1304,50 @@ Model {
       Ports		      [1]
       Position		      [965, 88, 995, 122]
       ZOrder		      159
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData'),StrPVP('SaveName','ScopeData2'),StrPVP('SaveName'"
-      ",'ScopeData2'))"
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2','DataLoggingLimitDataPoints',true,'DataLoggi"
+      "ngSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals'"
+      ",'Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','22.99554','MaxYLimReal','27.84017','YLabelReal',"
+      "'','MinYLimMag','22.99554','MaxYLimMag','27.84017','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPh"
+      "ase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrd"
+      "er',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156"
+      "862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0."
+      "0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames"
+      "',{{}},'NumLines',3,'LineNames',{{'wartoœæ zadana','x','wyjœcie z PID1'}},'ShowContent',true,'Placement',1)},'Di"
+      "splayPropertyDefaults',struct('MinYLimReal','22.99554','MaxYLimReal','27.84017','YLabelReal','','MinYLimMag','22"
+      ".99554','MaxYLimMag','27.84017','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCol"
+      "or',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.074509803921"
+      "5686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.2745098"
+      "03921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0."
+      "650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY'),extmgr.Configur"
+      "ation('Tools','Measurements',true,'Version','2016a')),'Version','2016a')"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope3"
       SID		      "6"
       Ports		      [2]
-      Position		      [960, 420, 990, 455]
+      Position		      [960, 427, 990, 463]
       ZOrder		      160
-      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'),StrPVP('SaveName','ScopeData3'),StrPVP('SaveName"
-      "','ScopeData3'))"
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData3','DataLoggingLimitDataPoints',true,'DataLoggi"
+      "ngSaveFormat','Array','DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals'"
+      ",'Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','22.99554','MaxYLimReal','27.84017','YLabelReal',"
+      "'','MinYLimMag','22.99554','MaxYLimMag','27.84017','LegendVisibility','On','XGrid',true,'YGrid',true,'PlotMagPha"
+      "se',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrde"
+      "r',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568"
+      "62745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0"
+      "745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames'"
+      ",{{}},'NumLines',2,'LineNames',{{'Wyjœcie z PID matlab','x'}},'ShowContent',true,'Placement',1)},'DisplayPropert"
+      "yDefaults',struct('MinYLimReal','22.99554','MaxYLimReal','27.84017','YLabelReal','','MinYLimMag','22.99554','Max"
+      "YLimMag','27.84017','LegendVisibility','On','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'"
+      "AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529"
+      "411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0."
+      "392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921568"
+      "63])),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Co"
+      "nfiguration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[53.8 42.6 561.6 420])"
       NumInputPorts	      "2"
     }
     Block {
@@ -1365,7 +1397,7 @@ Model {
       SID		      "19"
       Position		      [490, 495, 520, 525]
       ZOrder		      164
-      Value		      "22.95"
+      Value		      "offset"
       SampleTime	      "-1"
     }
     Block {
@@ -1380,6 +1412,12 @@ Model {
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
+      Port {
+	PortNumber		1
+	Name			"x"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Constant
@@ -1387,7 +1425,7 @@ Model {
       SID		      "9"
       Position		      [590, 155, 620, 185]
       ZOrder		      155
-      Value		      "22.95"
+      Value		      "offset"
       SampleTime	      "-1"
     }
     Block {
@@ -1397,7 +1435,7 @@ Model {
       Ports		      [1, 1]
       Position		      [465, 90, 495, 120]
       ZOrder		      152
-      DelayTime		      "delay"
+      DelayTime		      "tau"
     }
     Block {
       BlockType		      Constant
@@ -1405,7 +1443,7 @@ Model {
       SID		      "13"
       Position		      [85, 90, 115, 120]
       ZOrder		      161
-      Value		      "26"
+      Value		      "27"
     }
     Block {
       BlockType		      Sum
@@ -1426,7 +1464,7 @@ Model {
       SID		      "12"
       Position		      [385, 215, 415, 245]
       ZOrder		      157
-      Value		      "23"
+      Value		      "offset"
     }
     Line {
       ZOrder		      19
@@ -1452,21 +1490,23 @@ Model {
       }
     }
     Line {
+      Name		      "x"
       ZOrder		      6
       SrcBlock		      "obiekt_wyjœcie_PID1"
       SrcPort		      1
       Points		      [165, 0]
       Branch {
 	ZOrder			5
-	Points			[38, 0]
+	Points			[30, 0]
 	Branch {
-	  ZOrder		  34
-	  Points		  [0, 325]
+	  ZOrder		  60
+	  Labels		  [1, 1]
+	  Points		  [0, 350]
 	  DstBlock		  "Scope3"
-	  DstPort		  1
+	  DstPort		  2
 	}
 	Branch {
-	  ZOrder		  33
+	  ZOrder		  59
 	  DstBlock		  "Mux1"
 	  DstPort		  2
 	}
@@ -1603,14 +1643,15 @@ Model {
       SrcPort		      1
       Points		      [80, 0]
       Branch {
+	ZOrder			58
+	Points			[235, 0]
+	DstBlock		"Scope3"
+	DstPort			1
+      }
+      Branch {
 	ZOrder			36
 	Points			[0, 140; -510, 0]
 	DstBlock		"Sum2"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			35
-	DstBlock		"Scope3"
 	DstPort			2
       }
     }
@@ -1640,10 +1681,7 @@ Stateflow {
     firstTransition	    7
     firstJunction	    6
     viewObj		    2
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1671,11 +1709,11 @@ Stateflow {
       script		      "function u = Regulator_PID(uchyb)\n\n% Deklaracja ststycznych wartoœci\npersistent poprzedni_uchy"
       "b;\nif isempty(poprzedni_uchyb)\n    poprzedni_uchyb = 0;\nend\n\npersistent poprzednia_calka;\nif isempty(poprz"
       "ednia_calka)\n    poprzednia_calka = 0;\nend\n\n% Sta³e wartoœci \n% !!!!(TU PODAJEMY NASZE WARTOŒÆI PID z Tuner"
-      "a z bloku PID Discrete)!!!!:\ndt = 1;\nKp = 1.2;\nKi = 0.002;\nKd = 0;\nN = 100;\n\n% Czêœæ proporcjonalna:\nP ="
-      " Kp*uchyb;\n\n% Czêœæ ca³kuj¹ca:\ncalka = poprzednia_calka + (uchyb+poprzedni_uchyb) ; % integrator bez anti-win"
-      "dup\npoprzednia_calka = calka;\nI = Ki*calka*(dt/2);\n\n% Cz³on rózniczkuj¹cy:\nrozniczka = (uchyb - poprzedni_u"
-      "chyb)/dt; % numeryczna rózniczka bez filtra\nD = Kd*rozniczka;\n\n\n% Suma wszystkich czêœci:\nu = P  + I + D; %"
-      " bez saturacji\n"
+      "a z bloku PID Discrete)!!!!:\ndt = 1;\nKp = 0.52;\nKi = 0.003;\nKd = 0.257;\n% N = 100;\n\n% Czêœæ proporcjonaln"
+      "a:\nP = Kp*uchyb;\n\n% Czêœæ ca³kuj¹ca:\ncalka = poprzednia_calka + (uchyb+poprzedni_uchyb) ; % integrator bez a"
+      "nti-windup\npoprzednia_calka = calka;\nI = Ki*calka*(dt/2);\n\n% Cz³on rózniczkuj¹cy:\nrozniczka = (uchyb - popr"
+      "zedni_uchyb)/dt; % numeryczna rózniczka bez filtra\nD = Kd*rozniczka;\n\n\n% Suma wszystkich czêœci:\nu = P  + I"
+      " + D; % bez saturacji\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
