@@ -21,6 +21,7 @@ temperature = 0
 t = 0
 plik = open("Wyniki.txt", 'a')
 plt.ion()
+hSerial.write(b'STA=0001')
 # Pobieranie i przetwarzanie danych
 while True:
     tmp = hSerial.readline()

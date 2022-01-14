@@ -1,10 +1,10 @@
-13:44:23 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
+18:00:25 **** Incremental Build of configuration Debug for project Projekt_URA_MCU ****
 make -j12 all 
 arm-none-eabi-size   Projekt_URA_MCU.elf 
    text	   data	    bss	    dec	    hex	filename
-  56188	    528	   4352	  61068	   ee8c	Projekt_URA_MCU.elf
+  55708	    528	   4352	  60588	   ecac	Projekt_URA_MCU.elf
 Finished building: default.size.stdout
  
 
-13:44:24 Build Finished. 0 errors, 0 warnings. (took 373ms)
+18:00:25 Build Finished. 0 errors, 0 warnings. (took 377ms)
 
