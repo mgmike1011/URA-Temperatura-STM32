@@ -1,9 +1,14 @@
-%wyniki = importdata('WynikiPID.txt'); %plik z koñcowymi zebranymi pomiarami
+%
+% @Autorzy: Agnieszka Piórkowska, Mi³osz Gajewski
+% @MatLab version: R2016b
+% @Data: 14.01.2022
+%
+wyniki = importdata('WynikiPID.txt'); %plik z koñcowymi zebranymi pomiarami
 Wyniki = WynikiPID;
 czas = Wyniki(:,1);
 temperatura = Wyniki(:,2);
 liczba_probek = length(temperatura);
-zadana = 27; % tu ustaw nasz¹
+zadana = 27; %Do ustawienia z pomiarów
 
 figure(1);
 plot(czas,temperatura, 'b.');
