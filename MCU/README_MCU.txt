@@ -13,7 +13,7 @@ Program realizuje sterowanie mikrokontrolerem: wysyłanie i odbiór danych, real
 #Elementy fizyczne:
 - Nucleo F746ZG
 - Rezystor 39Ohm,
-- Tranzystor bipolarny NPN,
+- Tranzystor bipolarny NPN - 2SD882Y,
 - Czujnik BMP280,
 - Wyświetlacz OLED, ze sterownikiem SSD1306,
 - Przewody połączeniowe,
@@ -52,7 +52,7 @@ LD2	-	dioda niebieska 	-	działanie algorytmu regulatora
  *  Created on: 3 sty 2022
  *      Author: Agnieszka Piórkowska i Miłosz Gajewski
  */
-Stworzone na bazie materiałów do przedmiotu Systemy mikroprocesorowe - Politechnika Poznańska 2021.
+Stworzone na bazie materiałów do przedmiotu Systemy mikroprocesorowe - Politechnika Poznańska 2021/2022.
 
 #Czujnik BMP280:
 /*
