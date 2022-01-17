@@ -10,9 +10,9 @@ import threading
 from time import sleep
 import serial
 import json
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import keyboard
 from PyQt5 import QtCore, QtGui, QtWidgets
-# from Connection import Connect_to_MCU
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "URA"))
         self.pushButton_Polacz.setText(_translate("MainWindow", "Połącz"))
         self.label.setText(_translate("MainWindow", "URA - SM"))
         self.label_Status.setText(_translate("MainWindow", "Status: Rozłączono"))
@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         # Funkcje do przycisków
         #  
     def Connect_to_MCU(self):
-        port = 'COM4'
+        port = 'COM3'
         szybkosc = 115200
         self.hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE, bytesize = serial.EIGHTBITS) # Otworzenie portu
         self.hSerial.reset_input_buffer()
@@ -293,15 +293,21 @@ class Ui_MainWindow(object):
             plt.plot(self.t_all,self.temperature_all,'b')
             plt.plot(self.t_all,self.temperature_set_all,'r')
             plt.legend(["Temperatura aktualna","Temperatura zadana"])
-            plt.plot(self.t_all,self.temperature_set_all*1.01,'g') # 1% tunel
-            plt.plot(self.t_all,self.temperature_set_all*0.99,'g') # 1% tunel
-            plt.plot(self.t_all,self.temperature_set_all*1.05,'y') # 5% tunel
-            plt.plot(self.t_all,self.temperature_set_all*0.95,'y') # 5% tunel
+            temp_set_tunel = [i * 1.01 for i in self.temperature_set_all]
+            plt.plot(self.t_all,temp_set_tunel,'g') # 1% tunel
+            temp_set_tunel = [i * 0.99 for i in self.temperature_set_all]
+            plt.plot(self.t_all,temp_set_tunel,'g') # 1% tunel
+            temp_set_tunel = [i * 1.05 for i in self.temperature_set_all]
+            plt.plot(self.t_all,temp_set_tunel,'y') # 5% tunel
+            temp_set_tunel = [i * 0.95 for i in self.temperature_set_all]
+            plt.plot(self.t_all,temp_set_tunel,'y') # 5% tunel
             plt.title("URA - temperatura")
             plt.xlabel("Czas t [s]")
             plt.ylabel("Temperatura [C]")
             plt.show()
             plt.pause(0.01)
+            if keyboard.is_pressed("q"):
+                break
     
     def Temp_set_to_MCU(self):
         wybrana_temp = self.comboBox_temperatura.currentText()
@@ -312,11 +318,21 @@ class Ui_MainWindow(object):
     def Zapisz_do_pliku(self):
         self.plik = open("Wyniki_URA_GUI.txt", 'a')
         for i in range(len(self.t_all)):
-            self.plik.write(str(self.t_all[i]) + " " + str(self.temperature_all[i]) + str(self.u_all[i]) +"\n") # Zapis jako plik txt w formacie CSV
+            self.plik.write(str(self.t_all[i]) + " " + str(self.temperature_all[i])+ " " + str(self.u_all[i]) +"\n") # Zapis jako plik txt w formacie CSV
         self.plik.close()
 
+# def Start_Main_Window():
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     MainWindow = QtWidgets.QMainWindow()
+#     ui = Ui_MainWindow()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec_())
 
 if __name__ == "__main__":
+    # x1 = threading.Thread(Start_Main_Window,args=None)
+    # x1.start()
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
