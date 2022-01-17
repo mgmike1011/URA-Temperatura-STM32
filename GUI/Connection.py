@@ -1,3 +1,7 @@
+# 
+# Śmieć
+# 
+
 # Część odpowiadająca za połączenie programu z mikrokontrolerem i odbiór danych
 from time import sleep
 import serial
@@ -12,5 +16,3 @@ def Connect_to_MCU():
     hSerial.reset_input_buffer()
     hSerial.flush()
 # hSerial.close() !
-hello = "hello"
-print(bytes(hello,'UTF-8'))

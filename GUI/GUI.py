@@ -1,13 +1,19 @@
-# Część odpowiedzialna za oprawę graficzną
+###
+#       Interfejs graficzny użytkownika
+# @Autorzy:     Agnieszka Piórkowska i Miłosz Gajewski
+# @Data:        17.01.2022
+# @Uczelnia:    Politechnika Poznańska
+# @Przedmiot:   Systemy mikroprocesorowe
+# @Licencja:    MIT 
+###
 import threading
 from time import sleep
 import serial
 import json
 import matplotlib as plt
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+# from Connection import Connect_to_MCU
 
-from Connection import Connect_to_MCU
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -163,6 +169,17 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        # 
+        # Akcje przycisków
+        # 
+        # Przycisk Połącz:
+        self.pushButton_Polacz.clicked.connect(self.Connect_to_MCU)
+        # Przycisk Rozpocznij:
+        self.pushButton_Rozpocznij.clicked.connect(self.Rozpocznij_to_MCU)
+        # Przycisk Temperatura zadana
+        self.pushButton_temp_set.clicked.connect(self.Temp_set_to_MCU)
+        # Przycisk Zapisz
+        self.pushButton_zapisz.clicked.connect(self.Zapisz_do_pliku)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -199,14 +216,8 @@ class Ui_MainWindow(object):
         self.label_temp_aktualna.setText(_translate("MainWindow", "0"))
         self.pushButton_zapisz.setText(_translate("MainWindow", "Zapisz"))
         # 
-        # Akcje przycisków
-        # 
-        # Przycisk Połącz:
-        self.pushButton_Polacz.clicked.connect(self.Connect_to_MCU)
-        # Przycisk Rozpocznij:
-        self.pushButton_Rozpocznij.clicked.connect(self.Rozpocznij_to_MCU)
-        # Przycisk Temperatura zadana
-        self.pushButton_temp_set.clicked.connect(self.Temp_set_to_MCU)
+        # Funkcje do przycisków
+        #  
     def Connect_to_MCU(self):
         port = 'COM4'
         szybkosc = 115200
@@ -215,16 +226,94 @@ class Ui_MainWindow(object):
         self.hSerial.flush()
         self.label_Status.setText("Status: Połączono")
         self.label_Status.adjustSize()
+
+    
     def Rozpocznij_to_MCU(self):
         self.hSerial.write(b'STA=0001') # Rozpoczęcie pracy mikrokontrolera
         # Rozpoczęcie wyświetlania wyników
-        
+        # Wartości początkowe
+        # "Temp":wartosc
+        self.temperature = 0 # Aktualna temperatura
+        self.temperature_all = [] # Wektor temperatur
+        # "t":wartosc
+        self.t_all = [] # Wektor czasu
+        self.t = 0 # Czas
+        self.t_prev = 0 # Czas poprzedni
+        # "Temp_set":wartosc
+        self.temperature_set_all = [] # Wektor zadanych temperatur
+        self.temperature_set = 0 # Aktulana temperatura zadana
+        # "Kp":wartosc
+        self.Kp = 0
+        # "Ki":wartosc
+        self.Ki = 0
+        # "Kd":wartosc
+        self.Kd = 0
+        # "u":wartosc
+        self.u = 0 # Sterowanie aktualne
+        self.u_all = [] # Wektor sterowania
+        plt.ion()
+        while True:
+            tmp = self.hSerial.readline()
+            try:
+                # Format ramki JSON:
+                # {"Temp":wartosc,"t":wartosc,"Temp_set":wartosc,"Kp":wartosc,"Ki":wartosc,"Kd":wartosc,"u":wartosc}
+                sample = json.loads(tmp)
+                # "Temp":wartosc
+                self.temperature = sample["Temp"] # Odczytanie temperatury aktualnej
+                self.temperature_all.append(self.temperature) # Dodanie do całego zbioru
+                # "t":wartosc
+                self.t = sample["t"] # Czas
+                self.t_prev = self.t_prev + self.t
+                self.t_all.append(self.t_prev)
+                # "Temp_set":wartosc 
+                self.temperature_set = sample["Temp_set"] # Temperatura zadana
+                self.temperature_set_all.append(self.temperature_set)
+                # "Kp":wartosc
+                self.Kp = sample["Kp"]
+                self.label_kp.setText(str(self.Kp))
+                self.label_kp.adjustSize()
+                # "Ki":wartosc
+                self.Ki = sample["Ki"]
+                self.label_ki.setText(str(self.Ki))
+                self.label_ki.adjustSize()
+                # "Kd":wartosc
+                self.Kd = sample["Kd"]
+                self.label_kd.setText(str(self.Kd))
+                self.label_kd.adjustSize()
+                # "u":wartosc
+                self.u = sample["u"] # Sygnał sterujący
+                self.u_all.append(self.u)
+            except ValueError:
+                print("JSON Problem")
+                self.hSerial.flush()
+                self.hSerial.reset_input_buffer()
+            self.label_temp_aktualna.setText(str(self.temperature))
+            self.label_temp_aktualna.adjustSize()
+            plt.clf()
+            plt.plot(self.t_all,self.temperature_all,'b')
+            plt.plot(self.t_all,self.temperature_set_all,'r')
+            plt.legend(["Temperatura aktualna","Temperatura zadana"])
+            plt.plot(self.t_all,self.temperature_set_all*1.01,'g') # 1% tunel
+            plt.plot(self.t_all,self.temperature_set_all*0.99,'g') # 1% tunel
+            plt.plot(self.t_all,self.temperature_set_all*1.05,'y') # 5% tunel
+            plt.plot(self.t_all,self.temperature_set_all*0.95,'y') # 5% tunel
+            plt.title("URA - temperatura")
+            plt.xlabel("Czas t [s]")
+            plt.ylabel("Temperatura [C]")
+            plt.show()
+            plt.pause(0.01)
+    
     def Temp_set_to_MCU(self):
         wybrana_temp = self.comboBox_temperatura.currentText()
         tmp_wybrana_temp = wybrana_temp[0:2]
         self.message = "TMP="+tmp_wybrana_temp+".0"
         self.hSerial.write(bytes(self.message,'UTF-8'))
 
+    def Zapisz_do_pliku(self):
+        self.plik = open("Wyniki_URA_GUI.txt", 'a')
+        for i in range(len(self.t_all)):
+            self.plik.write(str(self.t_all[i]) + " " + str(self.temperature_all[i]) + str(self.u_all[i]) +"\n") # Zapis jako plik txt w formacie CSV
+        self.plik.close()
 
 
 if __name__ == "__main__":

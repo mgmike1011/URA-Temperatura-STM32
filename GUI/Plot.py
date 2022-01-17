@@ -1,3 +1,6 @@
+# 
+# Śmieć
+# 
 # Część odpowiedzialna za przedstawienie wyników
 from Connection import *
 import matplotlib.pyplot as plt
