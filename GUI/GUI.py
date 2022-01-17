@@ -227,7 +227,6 @@ class Ui_MainWindow(object):
         self.label_Status.setText("Status: Połączono")
         self.label_Status.adjustSize()
 
-    
     def Rozpocznij_to_MCU(self):
         self.hSerial.write(b'STA=0001') # Rozpoczęcie pracy mikrokontrolera
         # Rozpoczęcie wyświetlania wyników
@@ -321,18 +320,8 @@ class Ui_MainWindow(object):
             self.plik.write(str(self.t_all[i]) + " " + str(self.temperature_all[i])+ " " + str(self.u_all[i]) +"\n") # Zapis jako plik txt w formacie CSV
         self.plik.close()
 
-# def Start_Main_Window():
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     MainWindow = QtWidgets.QMainWindow()
-#     ui = Ui_MainWindow()
-#     ui.setupUi(MainWindow)
-#     MainWindow.show()
-#     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    # x1 = threading.Thread(Start_Main_Window,args=None)
-    # x1.start()
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
