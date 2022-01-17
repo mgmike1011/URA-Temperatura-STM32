@@ -12,3 +12,5 @@ def Connect_to_MCU():
     hSerial.reset_input_buffer()
     hSerial.flush()
 # hSerial.close() !
+hello = "hello"
+print(bytes(hello,'UTF-8'))

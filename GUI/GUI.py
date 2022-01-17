@@ -1,12 +1,13 @@
 # Część odpowiedzialna za oprawę graficzną
-# from Plot import *
-# from Connection import *
-# import threading
-
+import threading
+from time import sleep
+import serial
+import json
+import matplotlib as plt
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
+from Connection import Connect_to_MCU
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -197,6 +198,33 @@ class Ui_MainWindow(object):
         self.label_ki.setText(_translate("MainWindow", "0"))
         self.label_temp_aktualna.setText(_translate("MainWindow", "0"))
         self.pushButton_zapisz.setText(_translate("MainWindow", "Zapisz"))
+        # 
+        # Akcje przycisków
+        # 
+        # Przycisk Połącz:
+        self.pushButton_Polacz.clicked.connect(self.Connect_to_MCU)
+        # Przycisk Rozpocznij:
+        self.pushButton_Rozpocznij.clicked.connect(self.Rozpocznij_to_MCU)
+        # Przycisk Temperatura zadana
+        self.pushButton_temp_set.clicked.connect(self.Temp_set_to_MCU)
+    def Connect_to_MCU(self):
+        port = 'COM4'
+        szybkosc = 115200
+        self.hSerial = serial.Serial(port, szybkosc, timeout = 1, parity = serial.PARITY_NONE, bytesize = serial.EIGHTBITS) # Otworzenie portu
+        self.hSerial.reset_input_buffer()
+        self.hSerial.flush()
+        self.label_Status.setText("Status: Połączono")
+        self.label_Status.adjustSize()
+    def Rozpocznij_to_MCU(self):
+        self.hSerial.write(b'STA=0001') # Rozpoczęcie pracy mikrokontrolera
+        # Rozpoczęcie wyświetlania wyników
+        
+    def Temp_set_to_MCU(self):
+        wybrana_temp = self.comboBox_temperatura.currentText()
+        tmp_wybrana_temp = wybrana_temp[0:2]
+        self.message = "TMP="+tmp_wybrana_temp+".0"
+        self.hSerial.write(bytes(self.message,'UTF-8'))
+
 
 
 if __name__ == "__main__":
