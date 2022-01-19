@@ -18,6 +18,7 @@ Wykorzystane elementy fizyczne:
 - Wyświetlacz OLED, ze sterownikiem SSD1306,
 - Przewody połączeniowe,
 - Zasilacz zewnętrzny 5V i 3.3V,
+
 Wykorzystane biblioteki oraz sposób implementacji znajduje się w pliku *README_MCU.txt*.
 >**Dokładne informacje znajdują się w pliku [README_MCU.txt](https://github.com/mgmike1011/SM_lab_projekt_URA/blob/main/MCU/README_MCU.txt) (folder MCU).**
 
