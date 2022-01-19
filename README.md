@@ -2,6 +2,10 @@
 
 ## Projekt układu regulacji automatycznej zrealizowany na przedmiot Systemy mikroprocesorowe 2021/2022
 
+***Cel***: Stworzenie układu regulacji automatycznej (zaimplementowanego na mikrokontrolerze) temperatury rezystora sterowanego za pomocą tranzystora. 
+
+**Sekcje projketu:**
+
 ***GUI***: Graficzny interfejs użytkownika, który pozwala na komunikację z jednostką mikrokontrolera w obie strony (wysyłanie i odbiór danych), oraz graficzną wizualizacje działania układu. Program został stworzony w języku Python z wykorzystaniem trzech głównych bibliotek:
 - PyQt5 – stworzenie aplikacji okienkowej,
 -	Matplotlib – wizualizacja danych w czasie rzeczywistym,
@@ -27,7 +31,7 @@ Nastawy regualtora PID:
 - Kp = 0.52
 - Ki = 0.003
 - Kd = 0.257
->**Dokładne informacje znajdują się w pliku [README_SYMULACJA.txt](https://github.com/mgmike1011/SM_lab_projekt_URA/blob/main/Symulacja/README_SYMULACJA.txt) (folder GUI).**
+>**Dokładne informacje znajdują się w pliku [README_SYMULACJA.txt](https://github.com/mgmike1011/SM_lab_projekt_URA/blob/main/Symulacja/README_SYMULACJA.txt) (folder Symulacja).**
 
 `Wszystkie informacje o licencjach użytych do przygotowania projektu bibliotek programistycznych oraz innych elementów znajdują się w plikach *README* poszczególnych części projektu.`
 
