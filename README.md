@@ -35,6 +35,8 @@ Nastawy regualtora PID:
 
 `Wszystkie informacje o licencjach użytych do przygotowania projektu bibliotek programistycznych oraz innych elementów znajdują się w plikach *README* poszczególnych części projektu.`
 
+**Pełny opis projektu ze zdjęciami znajduje się w jego dokumentacji: [Dokumentacja](https://github.com/mgmike1011/SM_lab_projekt_URA/blob/main/Dokumentacja.pdf)**
+
 ## Autorzy: Agnieszka Piórkowska i Miłosz Gajewski.
 
 ### Politechnika Poznańska 2022
